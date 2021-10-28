@@ -28,7 +28,8 @@ blocks:
           commands:
             - checkout
             - docker build --tag $DOCKER_USERNAME/$DOCKER_IMAGE .
-            - docker run --rm $DOCKER_USERNAME/$DOCKER_IMAGE sqlite3mysql --version | grep "3.10.0"
+            - docker run --rm $DOCKER_USERNAME/$DOCKER_IMAGE python3 --version | grep "Python 3.10.0"
+            - docker run --rm $DOCKER_USERNAME/$DOCKER_IMAGE sqlite3mysql --version | grep "CPython 3.10.0"
             - docker run --rm $DOCKER_USERNAME/$DOCKER_IMAGE sqlite3mysql --version | grep "1.4.8"
       secrets:
         - name: DOCKER_TOKEN
