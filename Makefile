@@ -1,9 +1,9 @@
 build:
-	docker build --tag sineverba/testdockersqlite3tosql .
+	docker build --tag sineverba/testdockersqlite3tomysql .
 
 test:
-	docker run --rm -it sineverba/testdockersqlite3tosql sqlite3mysql --version | grep "3.10.0"
-	docker run --rm -it sineverba/testdockersqlite3tosql sqlite3mysql --version | grep "1.4.8"
+	docker run --rm -it sineverba/testdockersqlite3tomysql sqlite3mysql --version | grep "3.10.0"
+	docker run --rm -it sineverba/testdockersqlite3tomysql sqlite3mysql --version | grep "1.4.8"
 
 destroy:
-	docker image rm sineverba/testdockersqlite3tosql
+	docker image rm sineverba/testdockersqlite3tomysql
