@@ -1,0 +1,40 @@
+version: v1.0
+
+name: Build and test Pipeline
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+global_job_config:
+
+  prologue:
+    commands:
+      - echo $DOCKER_TOKEN | docker login --username "$DOCKER_USERNAME" --password-stdin
+
+  env_vars:
+    - name: DOCKER_USERNAME
+      value: sineverba
+    - name: DOCKER_IMAGE
+      value: sqlite3-to-sql
+
+blocks:
+  - name: 'Build and test'
+    skip:
+      when: "tag =~ '.*'"
+    task:
+      jobs:
+        - name: 'Build and test'
+          commands:
+            - checkout
+            - docker build --tag $DOCKER_USERNAME/$DOCKER_IMAGE .
+            - docker run --rm $DOCKER_USERNAME/$DOCKER_IMAGE sqlite3mysql --version | grep "3.10.0"
+            - docker run --rm $DOCKER_USERNAME/$DOCKER_IMAGE sqlite3mysql --version | grep "1.4.8"
+      secrets:
+        - name: DOCKER_TOKEN
+
+promotions:
+  - name: Deploy
+    pipeline_file: production-deploy.yml
+    auto_promote:
+      when: "result = 'passed' and tag =~ '.*'"
