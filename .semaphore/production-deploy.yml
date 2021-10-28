@@ -18,7 +18,7 @@ global_job_config:
     - name: DOCKER_USERNAME
       value: sineverba
     - name: DOCKER_IMAGE
-      value: sqlite3-to-sql
+      value: sqlite3-to-mysql
 
 blocks:
   - name: 'Build and deploy'
