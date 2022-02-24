@@ -1,13 +1,16 @@
 version: v1.0
 
-name: Build and test Pipeline
+name: Test
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 global_job_config:
 
+  secrets:
+    - name: ACCESS_TOKENS
+    
   prologue:
     commands:
       - echo $DOCKER_TOKEN | docker login --username "$DOCKER_USERNAME" --password-stdin
@@ -28,10 +31,9 @@ blocks:
           commands:
             - checkout
             - docker build --tag $DOCKER_USERNAME/$DOCKER_IMAGE .
-            - docker run --rm $DOCKER_USERNAME/$DOCKER_IMAGE sqlite3mysql --version | grep "3.10.0"
-            - docker run --rm $DOCKER_USERNAME/$DOCKER_IMAGE sqlite3mysql --version | grep "1.4.8"
-      secrets:
-        - name: DOCKER_TOKEN
+            - docker run --rm $DOCKER_USERNAME/$DOCKER_IMAGE python3 --version | grep "Python 3.10.2"
+            - docker run --rm $DOCKER_USERNAME/$DOCKER_IMAGE sqlite3mysql --version | grep "CPython 3.10.2"
+            - docker run --rm $DOCKER_USERNAME/$DOCKER_IMAGE sqlite3mysql --version | grep "1.4.9"
 
 promotions:
   - name: Deploy
