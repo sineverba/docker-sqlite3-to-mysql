@@ -12,11 +12,11 @@ Docker Sqlite3 to MySql
 
 Commands are the same of `sqlite3-to-mysql` project.
 
-`$ docker run --rm -it -v $(pwd):/usr/src/app sineverba/sqlite3-to-mysql sqlite3mysql [COMMAND]`
+`$ docker run --rm -it -v $(pwd):/usr/src/app sineverba/sqlite3-to-mysql:1.1.0 sqlite3mysql [COMMAND]`
 
 ### Example: basic sqlite conversion for Home Assistant
 
-`$ docker run --rm -it -v $(pwd):/usr/src/app sineverba/sqlite3-to-mysql sqlite3mysql -f home-assistant_v2.db -d homeassistant -u homeassistant --mysql-password homeassistant -h 192.168.1.104`
+`$ docker run --rm -it -v $(pwd):/usr/src/app sineverba/sqlite3-to-mysql:1.1.0 sqlite3mysql -f home-assistant_v2.db -d homeassistant -u homeassistant --mysql-password homeassistant -h 192.168.1.104`
 
 
 ## Github / image tags and versions
@@ -24,6 +24,7 @@ Commands are the same of `sqlite3-to-mysql` project.
 | Github / Docker Image tag | Python version | Sqlite3 to SQL version |
 | ------------------------- | -------------- | ---------------------- |
 | latest | 3.10.2 | 1.4.9 | linux/arm64/v8,linux/amd64,linux/arm/v6,linux/arm/v7 |
+| 1.1.0 | 3.10.2 | 1.4.9 | linux/arm64/v8,linux/amd64,linux/arm/v6,linux/arm/v7 |
 | 1.0.1 | 3.10.0 | 1.4.8 | linux/arm64/v8,linux/amd64,linux/arm/v6,linux/arm/v7 |
 
 ## Credits
