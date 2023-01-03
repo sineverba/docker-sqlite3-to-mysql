@@ -23,7 +23,7 @@ Commands are the same of `sqlite3-to-mysql` project.
 
 | Github / Docker Image tag | Python version | Sqlite3 to SQL version |
 | ------------------------- | -------------- | ---------------------- |
-| latest | 3.10.2 | 1.4.9 | linux/arm64/v8,linux/amd64,linux/arm/v6,linux/arm/v7 |
+| latest | 3.11.1 | 1.4.16 | linux/arm64/v8,linux/amd64,linux/arm/v6,linux/arm/v7 |
 | 1.1.0 | 3.10.2 | 1.4.9 | linux/arm64/v8,linux/amd64,linux/arm/v6,linux/arm/v7 |
 | 1.0.1 | 3.10.0 | 1.4.8 | linux/arm64/v8,linux/amd64,linux/arm/v6,linux/arm/v7 |
 
