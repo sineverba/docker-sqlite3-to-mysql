@@ -1,6 +1,6 @@
 IMAGE_NAME=sineverba/sqlite3-to-mysql
 CONTAINER_NAME=sqlite3-to-mysql
-VERSION=1.1.0-dev
+VERSION=1.2.0-dev
 PYTHON_IMAGE=python:3.11.4-alpine3.18
 TOPDIR=$(PWD)
 
