@@ -1,5 +1,6 @@
 # Next version
 + Upgrade dependencies
++ Upgrade dependencies
 
 ## 1.1.0
 + Add requirements.txt

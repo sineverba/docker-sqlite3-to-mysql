@@ -31,10 +31,10 @@ blocks:
           commands:
             - checkout
             - docker build --tag $DOCKER_USERNAME/$DOCKER_IMAGE .
-            - docker run --rm -it --entrypoint cat $DOCKER_USERNAME/$DOCKER_IMAGE /etc/os-release | grep "Alpine Linux v3.17"
-            - docker run --rm $DOCKER_USERNAME/$DOCKER_IMAGE python3 --version | grep "Python 3.11.1"
-            - docker run --rm $DOCKER_USERNAME/$DOCKER_IMAGE sqlite3mysql --version | grep "CPython 3.11.1"
-            - docker run --rm $DOCKER_USERNAME/$DOCKER_IMAGE sqlite3mysql --version | grep "1.4.16"
+            - docker run --rm -it --entrypoint cat $DOCKER_USERNAME/$DOCKER_IMAGE /etc/os-release | grep "Alpine Linux v3.18"
+            - docker run --rm $DOCKER_USERNAME/$DOCKER_IMAGE python3 --version | grep "Python 3.11.4"
+            - docker run --rm $DOCKER_USERNAME/$DOCKER_IMAGE sqlite3mysql --version | grep "CPython 3.11.4"
+            - docker run --rm $DOCKER_USERNAME/$DOCKER_IMAGE sqlite3mysql --version | grep "2.0.3"
 
 promotions:
   - name: Deploy
